@@ -1,6 +1,6 @@
 -- Table structure for table `Country`
 
-CREATE TABLE `Country` (
+CREATE TABLE IF NOT EXISTS `Country` (
   `Code` char(3) NOT NULL DEFAULT '',
   `Name` char(52) NOT NULL DEFAULT '',
   `Continent` enum('Asia','Europe','North America','Africa','Oceania','Antarctica','South America') NOT NULL DEFAULT 'Asia',

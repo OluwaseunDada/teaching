@@ -1,6 +1,6 @@
 
 
-CREATE TABLE `CountryLanguage` (
+CREATE TABLE IF NOT EXISTS `CountryLanguage` (
   `CountryCode` char(3) NOT NULL DEFAULT '',
   `Language` char(30) NOT NULL DEFAULT '',
   `IsOfficial` enum('T','F') NOT NULL DEFAULT 'F',

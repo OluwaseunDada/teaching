@@ -1,5 +1,5 @@
 -- Table structure for table `City`
-CREATE TABLE `City` (
+CREATE TABLE IF NOT EXISTS `City` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Name` char(35) NOT NULL DEFAULT '',
   `CountryCode` char(3) NOT NULL DEFAULT '',
