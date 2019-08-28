@@ -1,0 +1,3 @@
+CREATE DATABASE world;
+USE world;
+SET AUTOCOMMIT=0;
