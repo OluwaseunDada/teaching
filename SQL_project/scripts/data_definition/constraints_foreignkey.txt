@@ -1,0 +1,67 @@
+
+-- create a test database
+CREATE DATABASE IF NOT EXISTS testDb;
+USE testDb;
+
+-- create a table for persons 
+CREATE TABLE Persons (
+PersonID int,
+LastName varchar(255),
+FirstName varchar(255),
+Address  varchar(255),
+City varchar(255),
+primary key(PersonID)
+);
+
+-- insert some records with duplicate personID again
+INSERT INTO Persons
+(`PersonID`,
+`LastName`,
+`FirstName`,
+`Address`,
+`City`)
+VALUES
+(1, "Doe", "Ajala", "10 Holyland Compound", "SA"),
+(2, "Femi", "Olawale", "CT", "London"),
+(3, "Yuri", "Kawayuchi", "87 abs", "Tokyo"),
+(4, "Julius", "Vin", "222 Creek road", "Brussels"),
+(5, "Kon", "Gent", "7 NewHall", "St. Maels");
+
+-- create a table for orders 
+CREATE TABLE Orders (
+OrderID int NOT NULL,
+OrderNumber int NOT NULL,
+PersonID int,
+ProductName varchar(255),
+Description varchar(255),
+PRIMARY KEY (OrderID),
+FOREIGN KEY (PersonID)  REFERENCES Persons (PersonID)
+);
+
+-- populate the orders table
+INSERT INTO `testdb`.`orders`
+(`OrderID`,
+`OrderNumber`,
+`PersonID`,
+`ProductName`,
+`Description`)
+VALUES
+(1,1011,2,"Samsung Galaxy 5","2-day delivery"),
+(2,1012,1,"Chemistry Textbook XYZ","normal delivery"),
+(3,1013,5,"Apple Wrist watch","normal delivery");
+
+-- try to insert an order that is not linked to an existing person (e.g. personID =10) in the persons table
+ INSERT INTO `testdb`.`orders`
+(`OrderID`,
+`OrderNumber`,
+`PersonID`,
+`ProductName`,
+`Description`)
+VALUES
+(4,1014,10,"Armani Perfumes","normal delivery")
+
+/**
+for more reading: 
+https://www.ntu.edu.sg/home/ehchua/programming/sql/MySQL_Beginner.html#zz-4.2
+**/
+
