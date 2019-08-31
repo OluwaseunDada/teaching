@@ -1,0 +1,59 @@
+
+-- create a test database
+CREATE DATABASE IF NOT EXISTS testDb;
+USE testDb;
+
+
+-- create a database 
+CREATE TABLE PrimaryKeyPersons (
+PersonID int,
+LastName varchar(255),
+FirstName varchar(255),
+Address  varchar(255),
+City varchar(255)
+);
+
+-- insert some records 
+INSERT INTO PrimaryKeyPersons
+(`PersonID`,
+`LastName`,
+`FirstName`,
+`Address`,
+`City`)
+VALUES
+(1, "Doe", "Ajala", "10 Holyland Compound", "SA"),
+(2, "Femi", "Olawale", "CT", "London"),
+(3, "Yuri", "Kawayuchi", "87 abs", "Tokyo"),
+(4, "Femi", "Vin", "222 Creek road", "Brussels"),
+(2, "Gani", "Kawayuchi", "5 kklabs", "Tokyo"),
+(5, "Kon", "Gent", "7 NewHall", "St. Maels");
+
+
+-- To enforce PRIMARY KEY constraint, we can either recreate the table or alter existing table
+DROP TABLE `testdb`.`PrimaryKeyPersons`;
+
+-- assuming, we want a unique last name
+-- create a table 
+CREATE TABLE IF NOT EXISTS PrimaryKeyPersons (
+PersonID int,
+LastName varchar(255),
+FirstName varchar(255),
+Address  varchar(255),
+City varchar(255),
+primary key(PersonID)
+);
+
+-- now, try to insert some records with duplicate personID again
+INSERT INTO PrimaryKeyPersons
+(`PersonID`,
+`LastName`,
+`FirstName`,
+`Address`,
+`City`)
+VALUES
+(1, "Doe", "Ajala", "10 Holyland Compound", "SA"),
+(2, "Femi", "Olawale", "CT", "London"),
+(3, "Yuri", "Kawayuchi", "87 abs", "Tokyo"),
+(4, "Femi", "Vin", "222 Creek road", "Brussels"),
+(2, "Gani", "Kawayuchi", "5 kklabs", "Tokyo"),
+(5, "Kon", "Gent", "7 NewHall", "St. Maels");

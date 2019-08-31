@@ -1,0 +1,53 @@
+
+-- create a test database
+CREATE DATABASE IF NOT EXISTS testDb;
+USE testDb;
+
+
+CREATE TABLE AutoIncrementPersons (
+PersonID int,
+LastName varchar(255),
+FirstName varchar(255),
+Address  varchar(255),
+City varchar(255),
+primary key(PersonID)
+);
+
+-- inser records, manually add personID field
+INSERT INTO AutoIncrementPersons
+(`PersonID`,
+`LastName`,
+`FirstName`,
+`Address`,
+`City`)
+VALUES
+(1, "Doe", "Ajala", "10 Holyland Compound", "SA"),
+(2, "Femi", "Olawale", "CT", "London"),
+(3, "Yuri", "Kawayuchi", "87 abs", "Tokyo"),
+(4, "Yomi", "Vin", "222 Creek road", "Brussels"),
+(5, "Kon", "Gent", "7 NewHall", "St. Maels");
+
+-- recreate table with auto_increment enabled
+
+DROP TABLE `testdb`.`autoincrementpersons`
+
+CREATE TABLE AutoIncrementPersons (
+PersonID int AUTO_INCREMENT=150,
+LastName varchar(255),
+FirstName varchar(255),
+Address  varchar(255),
+City varchar(255),
+primary key(PersonID)
+);
+
+-- inser records, personID field is generated automatically
+INSERT INTO AutoIncrementPersons
+(`PersonID`,`LastName`,`FirstName`,`Address`,`City`)
+VALUES
+("Doe", "Ajala", "10 Holyland Compound", "SA"),
+("Femi", "Olawale", "CT", "London"),
+("Yuri", "Kawayuchi", "87 abs", "Tokyo"),
+("Yomi", "Vin", "222 Creek road", "Brussels"),
+("Kon", "Gent", "7 NewHall", "St. Maels");
+
+

@@ -1,0 +1,27 @@
+-- create a test database
+CREATE DATABASE IF NOT EXISTS testDb;
+USE testDb;
+
+CREATE TABLE DefaultPersons (
+    ID int NOT NULL,
+	AccountCreatedDate DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    City varchar(255) DEFAULT 'Helsinki'
+);
+
+
+-- now, insert some records intentional skipping the field with default value
+
+INSERT INTO `testdb`.`DefaultPersons`
+(`ID`, `LastName`, `FirstName`, `Age`)
+VALUES
+(1, "Dougles", "Mike", 32),
+(2, "Alde", "Sokerin", 18),
+(3, "Charles", "Ronke", 19),
+(4, "Faraday", "Mary", 25),
+(5, "Kay", "Musiliu", 51);
+
+-- view table
+SELECT * FROM testdb.DefaultPersons;

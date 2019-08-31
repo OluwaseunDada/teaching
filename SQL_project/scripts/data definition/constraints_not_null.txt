@@ -1,0 +1,81 @@
+/*
+Null as a Value
+In simple terms, NULL is simply a place holder for data that does not exist. When performing insert operations on tables, they will be times when some  field values will not be available. 
+
+In order to meet the requirements of true relational database management systems, MySQL uses NULL as the place holder for the values that have not been submitted. 
+https://www.guru99.com/null.html
+*/
+-- create a test database
+CREATE DATABASE IF NOT EXISTS testDb;
+USE testDb;
+
+
+-- create a database with nullable fields
+CREATE TABLE IF NOT EXISTS NullablePersons (
+PersonID int,
+LastName varchar(255),
+FirstName varchar(255),
+Address  varchar(255),
+City varchar(255)
+)
+
+-- insert some records 
+INSERT INTO NullablePersons
+(`PersonID`,
+`LastName`,
+`FirstName`,
+`Address`,
+`City`)
+VALUES
+(1, "Doe", "Ajala", "10 Holyland Compound", "SA"),
+(2, "Femi", "Olawale", "CT", "London")
+
+-- Let's now try to insert a new record without specifying the certain fields
+INSERT INTO NullablePersons
+(`PersonID`,
+`Address`,
+`City`)
+VALUES
+(3, "Kings Avenue, 554", "SA"),
+(4,  "Wall Street", "New York")
+
+-- check the database
+SELECT * FROM testdb.nullablepersons;
+
+
+-- now, enforce the not-null constraint either by CREATE or ALTER
+DROP TABLE `testdb`.`nullablepersons`;
+
+CREATE TABLE `testdb`.`nullablepersons` (
+PersonID int NOT NULL,
+LastName varchar(255) NOT NULL,
+FirstName varchar(255) NOT NULL,
+Address  varchar(255) NOT NULL,
+City varchar(255) NOT NULL
+)
+
+
+-- describe table to see
+describe nullablepersons
+
+-- now, try to insert records with null values again
+
+-- insert some records 
+INSERT INTO NullablePersons
+(`PersonID`,
+`LastName`,
+`FirstName`,
+`Address`,
+`City`)
+VALUES
+(1, "Doe", "Ajala", "10 Holyland Compound", "SA"),
+(2, "Femi", "Olawale", "CT", "London")
+
+-- Let's now try to insert a new record without specifying the certain fields
+INSERT INTO NullablePersons
+(`PersonID`,
+`Address`,
+`City`)
+VALUES
+(3, "Kings Avenue, 554", "SA"),
+(4,  "Wall Street", "New York")
