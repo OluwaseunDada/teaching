@@ -10,7 +10,7 @@ CREATE DATABASE IF NOT EXISTS testDb;
 USE testDb;
 
 
--- create a database with nullable fields
+-- create a table with nullable fields
 CREATE TABLE IF NOT EXISTS NullablePersons (
 PersonID int,
 LastName varchar(255),

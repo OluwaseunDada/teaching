@@ -40,9 +40,9 @@ City varchar(255),
 primary key(PersonID)
 );
 
--- inser records, personID field is generated automatically
+-- insert records, personID field is generated automatically
 INSERT INTO AutoIncrementPersons
-(`PersonID`,`LastName`,`FirstName`,`Address`,`City`)
+(`LastName`,`FirstName`,`Address`,`City`)
 VALUES
 ("Doe", "Ajala", "10 Holyland Compound", "SA"),
 ("Femi", "Olawale", "CT", "London"),

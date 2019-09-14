@@ -1,0 +1,18 @@
+
+-- create a test database
+CREATE DATABASE IF NOT EXISTS testDb;
+USE testDb;
+
+-- create a table for persons 
+CREATE TABLE persons (
+PersonID int,
+LastName varchar(255),
+FirstName varchar(255),
+Address  varchar(255),
+City varchar(255),
+primary key(PersonID)
+);
+
+ALTER TABLE persons
+
+Add COLUMN MiddleName VARCHAR(255) AFTER FirstName
